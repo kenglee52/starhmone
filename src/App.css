@@ -1,0 +1,206 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.marshmallow-bg {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.hero-section-mallow {
+  background: linear-gradient(120deg, rgba(91, 5, 26, 0.7) 0%, rgba(255,0,0,0.7) 100%), url('https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/v1620075511/Best-Tourist-Attractions-Laos-to-See-Pha-That-Luang/Best-Tourist-Attractions-Laos-to-See-Pha-That-Luang.jpg') center/cover no-repeat;
+  min-height: 60vh;
+  position: relative;
+  z-index: 1;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+.hero-section-mallow::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: inherit;
+  filter: blur(0px);
+  z-index: 0;
+}
+
+.hero-section-mallow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mallow-wave {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 120px;
+  background: none;
+  z-index: 2;
+}
+
+.mallow-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.mallow-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  margin: 0 auto 1rem auto;
+  background: #e3e8fd;
+  border-radius: 50%;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+body, .App, .marshmallow-bg {
+  font-family: 'Noto Sans Lao', 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
+/* Product Card Animation & Responsive Enhancements */
+.MyProductSection-card {
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+  will-change: transform, box-shadow;
+}
+.MyProductSection-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(235,16,74,0.15), 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+
+.about-bg-gradient {
+  background: linear-gradient(120deg, #fff 60%, #ffe3ea 100%);
+  min-height: 100vh;
+}
+
+.about-img-animate {
+  animation: aboutImgFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes aboutImgFloat {
+  0% { transform: translateY(0); box-shadow: 0 8px 32px rgba(235,16,74,0.08); }
+  100% { transform: translateY(-18px) scale(1.03); box-shadow: 0 16px 48px rgba(235,16,74,0.15); }
+}
+
+.about-card-effect {
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+}
+.about-card-effect:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 12px 40px rgba(235,16,74,0.18), 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+
+.hero-search-overlap {
+  z-index: 10;
+  /* ปรับระยะห่างจาก wave ตามต้องการ */
+  margin-top: -60px;
+  pointer-events: auto;
+}
+@media (max-width: 768px) {
+  .hero-search-overlap {
+    top: 80%;
+    margin-top: -30px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .MyProductSection-card {
+    margin-bottom: 1.5rem;
+  }
+  .navbar-toggler {
+    border-color: #eb104a !important;
+  }
+  .navbar-toggler-icon {
+    background-image: none !important;
+    position: relative;
+  }
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after,
+  .navbar-toggler-icon span {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 3px;
+    margin: 4px auto;
+    background: #eb104a;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .navbar-toggler-icon span {
+    background: #eb104a;
+  }
+  .custom-toggler {
+    border-color: #eb104a !important;
+    box-shadow: none;
+    background: transparent;
+  }
+  .custom-toggler .toggler-bar {
+    display: block;
+    width: 22px;
+    height: 3px;
+    margin: 4px auto;
+    background: #eb104a;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .MyProductSection-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .MyProductSection-card {
+    margin-bottom: 1.5rem;
+  }
+  .MyProductSection-card .card-img-top {
+    height: 140px !important;
+  }
+}
