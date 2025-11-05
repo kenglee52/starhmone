@@ -29,7 +29,7 @@ export default function MyProductSection() {
   const [currentPage,setCurrentPage]=useState(1);
   const pageSize=16;
   const LoadData=async () => {
-    const response=await fetch('http://localhost:3000/api/products',{
+    const response=await fetch('https://costs-searches-machines-weights.trycloudflare.com/api/products',{
       method: 'GET'
     });
     if(response.status===200) {
@@ -85,7 +85,7 @@ export default function MyProductSection() {
       <div class="card mb-3 shadow-sm position-relative">
         <div style="border-radius: 10px; overflow: hidden; cursor: pointer;">
           <img id="mainImagePreview"
-            src="http://localhost:3000/${images[0].replace(/\\/g,'/')}" 
+            src="https://costs-searches-machines-weights.trycloudflare.com/${images[0].replace(/\\/g,'/')}" 
             class="w-100 img-fluid product-img-main" 
             alt="Product Image"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
@@ -152,7 +152,7 @@ export default function MyProductSection() {
                 .map((img,index) => `
                       <div class="swiper-slide">
                         <div class="text-center">
-                          <img src="http://localhost:3000/${img.replace(/\\/g,'/')}" 
+                          <img src="https://costs-searches-machines-weights.trycloudflare.com/${img.replace(/\\/g,'/')}" 
                                class="img-fluid rounded shadow-sm" 
                                style="max-height: 70vh; max-width: 100%; object-fit: contain;" 
                                alt="Product Image ${index+1}" />
@@ -229,7 +229,7 @@ export default function MyProductSection() {
                             <video class="position-absolute top-50 start-50 translate-middle" 
                                    style="max-width: 100%; max-height: 100%; object-fit: contain;" 
                                    controls preload="metadata">
-                              <source src="http://localhost:3000/${v.replace(/\\/g,'/')}" type="video/mp4">
+                              <source src="https://costs-searches-machines-weights.trycloudflare.com/${v.replace(/\\/g,'/')}" type="video/mp4">
                               <div class="alert alert-warning text-center position-absolute top-50 start-50 translate-middle">
                                 <p class="mb-0">ໂທດເດ ບຣາວເຊີຂອງທ່ານບໍ່ສະຫນັບສະໜູນວີດີໂອນີ້ 😔</p>
                               </div>
@@ -274,7 +274,7 @@ export default function MyProductSection() {
   const visibleProducts=showAll? Products.slice(0,16):Products.slice(0,8);
   const loaddistricts=async () => {
     try {
-      const response=await fetch(`http://localhost:3000/api/districts`,{
+      const response=await fetch(`https://costs-searches-machines-weights.trycloudflare.com/api/districts`,{
         method: "GET",
       });
       console.log("HTTP Status:",response.status);
@@ -294,7 +294,7 @@ export default function MyProductSection() {
 
   const loadProvinces=async () => {
     try {
-      const response=await fetch("http://localhost:3000/api/provinces",{
+      const response=await fetch("https://costs-searches-machines-weights.trycloudflare.com/api/provinces",{
         method: "GET",
       });
 
@@ -314,7 +314,7 @@ export default function MyProductSection() {
   };
   const LoadDistrictByProvince=async (provinceID) => {
     try {
-      const response=await fetch(`http://localhost:3000/api/provinces/districts/${provinceID}`,{
+      const response=await fetch(`https://costs-searches-machines-weights.trycloudflare.com/api/provinces/districts/${provinceID}`,{
         method: 'GET'
       });
       if(response.status===200) {
@@ -332,7 +332,7 @@ export default function MyProductSection() {
 
   const LoadProvinceByDistrict=async (districtID) => {
     try {
-      const response=await fetch(`http://localhost:3000/api/districts/province/${districtID}`,{
+      const response=await fetch(`https://costs-searches-machines-weights.trycloudflare.com/api/districts/province/${districtID}`,{
         method: 'GET'
       });
       if(response.status===200) {
@@ -353,7 +353,7 @@ export default function MyProductSection() {
 
   const loadproductTypes=async () => {
     try {
-      const response=await fetch("http://localhost:3000/api/productTypes",{
+      const response=await fetch("https://costs-searches-machines-weights.trycloudflare.com/api/productTypes",{
         method: "GET",
       });
       console.log("HTTP Status:",response.status);
@@ -435,9 +435,9 @@ export default function MyProductSection() {
           variant="top"
           src={
             Array.isArray(product.image)
-              ? `http://localhost:3000/${product.image[0]?.replace(/\\/g,'/')||''}`
+              ? `https://costs-searches-machines-weights.trycloudflare.com/${product.image[0]?.replace(/\\/g,'/')||''}`
               :product.image
-                ? `http://localhost:3000/${product.image.replace(/\\/g,'/')}`
+                ? `https://costs-searches-machines-weights.trycloudflare.com/${product.image.replace(/\\/g,'/')}`
                 :''
           }
           style={{objectFit: 'cover',width: '100%',height: '100%'}}
