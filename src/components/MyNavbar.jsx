@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import React,{useEffect,useState} from 'react';
+import {Navbar,Container,Nav,Button} from 'react-bootstrap';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function MyNavbar() {
-  const [likedCount, setLikedCount] = useState(() => {
-    const saved = localStorage.getItem('likedProducts');
-    return saved ? JSON.parse(saved).length : 0;
+  const [likedCount,setLikedCount]=useState(() => {
+    const saved=localStorage.getItem('likedProducts');
+    return saved? JSON.parse(saved).length:0;
   });
 
   useEffect(() => {
@@ -14,17 +14,17 @@ export default function MyNavbar() {
       duration: 2000,
       once: true
     });
-  }, []);
+  },[]);
 
   useEffect(() => {
-    const updateCount = () => {
-      const saved = localStorage.getItem('likedProducts');
-      setLikedCount(saved ? JSON.parse(saved).length : 0);
+    const updateCount=() => {
+      const saved=localStorage.getItem('likedProducts');
+      setLikedCount(saved? JSON.parse(saved).length:0);
     };
-    window.addEventListener('likedProductsChanged', updateCount);
+    window.addEventListener('likedProductsChanged',updateCount);
     updateCount();
-    return () => window.removeEventListener('likedProductsChanged', updateCount);
-  }, []);
+    return () => window.removeEventListener('likedProductsChanged',updateCount);
+  },[]);
 
   return (
     <Navbar
@@ -41,16 +41,6 @@ export default function MyNavbar() {
         {/* ใช้ div ครอบปุ่มแล้วดันไปขวา */}
         <div className="ms-auto d-flex gap-2 order-lg-last" >
           <Button variant="success" className="fw-bold px-4">ຕິດຕໍ່</Button>
-          <Button
-            variant="danger"
-            className="fw-bold px-4"
-            onClick={() => {
-              window.location.href ="#MyProductSection"
-              window.dispatchEvent(new CustomEvent('toggleLikedProducts'));
-            }}
-          >
-            ຊັບທີ່ສົນໃຈ
-          </Button>
         </div>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler ms-2">
@@ -66,6 +56,17 @@ export default function MyNavbar() {
             <Nav.Link className="text-danger" href="#sectionService">ບໍລິການ</Nav.Link>
             <Nav.Link className="text-danger" href="#MyAbout">ລາຍລະອຽດ</Nav.Link>
             <Nav.Link className="text-danger" href="#sectionPolicy">ນະໂຍບາຍ</Nav.Link>
+            <Button
+              variant="danger"
+              className="fw-bold px-4"
+              onClick={() => {
+                window.location.href="#MyProductSection"
+                window.dispatchEvent(new CustomEvent('toggleLikedProducts'));
+              }}
+            >
+              ຊັບທີ່ສົນໃຈ
+            </Button>
+            &nbsp;
           </Nav>
         </Navbar.Collapse>
       </Container>

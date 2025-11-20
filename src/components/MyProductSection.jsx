@@ -85,7 +85,7 @@ export default function MyProductSection() {
       <div class="card mb-3 shadow-sm position-relative">
         <div style="border-radius: 10px; overflow: hidden; cursor: pointer;">
           <img id="mainImagePreview"
-            src="https://costs-searches-machines-weights.trycloudflare.com/${images[0].replace(/\\/g,'/')}" 
+            src="${images[0].replace(/\\/g,'/')}" 
             class="w-100 img-fluid product-img-main" 
             alt="Product Image"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
@@ -152,7 +152,7 @@ export default function MyProductSection() {
                 .map((img,index) => `
                       <div class="swiper-slide">
                         <div class="text-center">
-                          <img src="https://costs-searches-machines-weights.trycloudflare.com/${img.replace(/\\/g,'/')}" 
+                          <img src="${img.replace(/\\/g,'/')}" 
                                class="img-fluid rounded shadow-sm" 
                                style="max-height: 70vh; max-width: 100%; object-fit: contain;" 
                                alt="Product Image ${index+1}" />
@@ -229,7 +229,7 @@ export default function MyProductSection() {
                             <video class="position-absolute top-50 start-50 translate-middle" 
                                    style="max-width: 100%; max-height: 100%; object-fit: contain;" 
                                    controls preload="metadata">
-                              <source src="https://costs-searches-machines-weights.trycloudflare.com/${v.replace(/\\/g,'/')}" type="video/mp4">
+                              <source src="${v.replace(/\\/g,'/')}" type="video/mp4">
                               <div class="alert alert-warning text-center position-absolute top-50 start-50 translate-middle">
                                 <p class="mb-0">ໂທດເດ ບຣາວເຊີຂອງທ່ານບໍ່ສະຫນັບສະໜູນວີດີໂອນີ້ 😔</p>
                               </div>
@@ -435,9 +435,9 @@ export default function MyProductSection() {
           variant="top"
           src={
             Array.isArray(product.image)
-              ? `https://costs-searches-machines-weights.trycloudflare.com/${product.image[0]?.replace(/\\/g,'/')||''}`
+              ? `${product.image[0]?.replace(/\\/g,'/')||''}`
               :product.image
-                ? `https://costs-searches-machines-weights.trycloudflare.com/${product.image.replace(/\\/g,'/')}`
+                ? `${product.image.replace(/\\/g,'/')}`
                 :''
           }
           style={{objectFit: 'cover',width: '100%',height: '100%'}}
@@ -470,12 +470,12 @@ export default function MyProductSection() {
       <Card.Body className="py-2" style={{fontSize: '0.85rem'}}>
         <p className="mb-1">
           <span className='fw-bold'>ບ້ານ:</span> {product.village}<br />
-          <span className='fw-bold'>ເມືອງ:</span> {product.District?.districtName}<br />
-          <span className='fw-bold'>ແຂວງ:</span> {product.District?.Province?.provinceName}
+          <span className='fw-bold'>ເມືອງ:</span> {product.district?.districtName}<br />
+          <span className='fw-bold'>ແຂວງ:</span> {product.district?.province?.provinceName}
         </p>
       </Card.Body>
       <Card.Footer className="bg-white border-0 d-flex align-items-center py-2" style={{fontSize: '0.85rem'}}>
-        <span className="fw-bold text-danger">ລາຄາ: {Number(product.price).toLocaleString()} {product.Currency.currencyName}</span>
+        <span className="fw-bold text-danger">ລາຄາ: {Number(product.price).toLocaleString()} {product.currency.currencyName}</span>
       </Card.Footer>
       <div className="p-2">
         <Button
@@ -615,7 +615,7 @@ export default function MyProductSection() {
           {productsToShow.length===0? (
             <Col>
               <div className="text-center text-muted py-5">
-                {showLiked? "ບໍ່ມີສິນຄ້າທີ່ສົນໃຈ":"ບໍ່ພົບສິນຄ້າທີ່ຕ້ອງການ"}
+                {showLiked? "ບໍ່ມີສິນຄ້າທີ່ສົນໃຈ":"ກຳລັງໂຫລດຂໍ້ມຸູນ..."}
               </div>
             </Col>
           ):(
