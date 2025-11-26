@@ -53,9 +53,9 @@ export default function MyNavbar() {
           <Nav className="ms-auto align-items-center">
             <Nav.Link href="#home" className="active text-danger">ໜ້າຫຼັກ</Nav.Link>
             <Nav.Link className="text-danger" href="#MyProductSection">ຊັບສິນຫຼ້າສຸດ</Nav.Link>
-            <Nav.Link className="text-danger" href="#sectionService">ບໍລິການ</Nav.Link>
+            {/* <Nav.Link className="text-danger" href="#sectionService">ບໍລິການ</Nav.Link>
             <Nav.Link className="text-danger" href="#MyAbout">ລາຍລະອຽດ</Nav.Link>
-            <Nav.Link className="text-danger" href="#sectionPolicy">ນະໂຍບາຍ</Nav.Link>
+            <Nav.Link className="text-danger" href="#sectionPolicy">ນະໂຍບາຍ</Nav.Link> */}
             <Button
               variant="danger"
               className="fw-bold px-4"

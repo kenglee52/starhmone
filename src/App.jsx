@@ -17,9 +17,9 @@ function App() {
       {/* Hero Section */}
       <MyHeroSection/>
       <MyProductSection/>
-      <MyService/>
+      {/* <MyService/>
       <MyAbout/>
-      <MyPolicy/>  
+      <MyPolicy/>   */}
       <MyFooter/>
     </div>
   );
