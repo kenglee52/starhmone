@@ -12,16 +12,16 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2";
-import "sweetalert2/dist/sweetalert2.min.css"; 
+import "sweetalert2/dist/sweetalert2.min.css";
 
 // ✅ Swiper v11+
-import Swiper from "swiper"; 
+import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { FaHeart, FaSearch, FaAngleLeft, FaAngleRight } from "react-icons/fa"; 
+import { FaHeart, FaSearch, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 export default function MyProductSection() {
   useEffect(() => {
@@ -37,12 +37,13 @@ export default function MyProductSection() {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 16; 
+  const pageSize = 8; // ✅ Changed from 16 to 8
 
   // lookup lists
   const [districts, setDistricts] = useState([]);
   const [provinces, setProvinces] = useState([]);
   const [productType, setProductType] = useState([]);
+  // ... (Rest of the component code, including data fetching, helper getters, and the toggleLike function, remains the same)
 
   // liked products persisted to localStorage
   const [likedProducts, setLikedProducts] = useState(() => {
@@ -133,7 +134,7 @@ export default function MyProductSection() {
           setDistricts([]);
         }
       } else {
-        setDistricts([]); 
+        setDistricts([]);
       }
     } catch (err) {
       console.error(err);
@@ -256,7 +257,7 @@ export default function MyProductSection() {
   // UI handlers
   const handleProvinceChange = async (value) => {
     setSelectedProvince(value);
-    setSelectedDistrict(""); 
+    setSelectedDistrict("");
     await LoadDistrictByProvince(value);
   };
 
@@ -293,9 +294,9 @@ export default function MyProductSection() {
 
           <div class="card mb-3 shadow-sm">
             <div style="border-radius:10px; overflow:hidden; position:relative;">
-              ${images.length>0 ? 
-                `<img id="mainImagePreview" src="${safePath(images[0])}" class="w-100 img-fluid product-img-main" alt="Product" style="cursor:pointer;"/>` 
-                : 
+              ${images.length>0 ?
+                `<img id="mainImagePreview" src="${safePath(images[0])}" class="w-100 img-fluid product-img-main" alt="Product" style="cursor:pointer;"/>`
+                :
                 `<div class="p-4 text-center text-muted">ບໍ່ມີຮູບພາບ</div>`
               }
             </div>
@@ -312,7 +313,7 @@ export default function MyProductSection() {
               <p class="mb-1">💰 ລາຄາ: ${Number(product.price||0).toLocaleString()} ${product.currency?.currencyName||''}</p>
               <p class="mb-1">✅ ສະຖານະ: ${product.status||''}</p>
               <p class="mb-1">📏 ຂະໜາດ: ${product.size||''}</p>
-              <p class="mt-2">ເບີຕິດຕໍ່:  020 51519883</p>
+              <p class="mt-2">ເບີຕິດຕໍ່:  020 51519883</p>
               <p class="mt-2">📝 ລາຍລະອຽດ: ${product.description||''}</p>
             </div>
           </div>
@@ -491,31 +492,31 @@ export default function MyProductSection() {
             </Button>
           </div>
         </div>
-        
+
         <hr/>
 
         {!showLiked && (
           <Card className="mb-4 shadow-lg" id="ProductList">
             <Card.Header className="text-center bg-danger text-white">
-              <Card.Title className="fs-6 fs-sm-5">ຄົ້ນຫາຊັບສິນ</Card.Title> {/* ໃຊ້ fs-6 ສໍາລັບມືຖື, fs-5 ສໍາລັບ desktop */}
+              <Card.Title className="fs-6 fs-sm-5">ຄົ້ນຫາຊັບສິນ</Card.Title>
             </Card.Header>
-            
+
             {/* ✅ ຫຼຸດຂະໜາດຕົວອັກສອນ ແລະ ໄລຍະຫ່າງໂດຍໃຊ້ຄລາດ Bootstrap */}
-            <Card.Body className="p-2 p-md-3"> 
+            <Card.Body className="p-2 p-md-3">
               <FormGroup className="mb-2 mb-md-3">
-                <InputGroup size="sm"> {/* ໃຊ້ size="sm" ເພື່ອໃຫ້ input ນ້ອຍລົງ */}
+                <InputGroup size="sm">
                   <span className="input-group-text"><FaSearch /></span>
                   <FormControl
                     id="searchInput"
                     placeholder="ຄົ້ນຫາຊັບສິນ (ຊື່, ລະຫັດ, ບ້ານ, ເມືອງ, ແຂວງ)"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="small" // ໃຊ້ຄລາດ 'small' ເພື່ອຫຼຸດ font ພາຍໃນ input
+                    className="small"
                   />
                 </InputGroup>
               </FormGroup>
 
-              <Row className="mb-2 mb-md-3 small"> {/* ໃຊ້ຄລາດ 'small' ເພື່ອຫຼຸດ font ຂອງ label/selects ທັງໝົດໃນ Row */}
+              <Row className="mb-2 mb-md-3 small">
                 <Col md={6} xs={6}>
                   <FormGroup>
                     <label className="d-block mb-1">ແຂວງ</label>
@@ -541,7 +542,7 @@ export default function MyProductSection() {
                 </Col>
               </Row>
 
-              <Row className="mb-2 mb-md-3 small"> {/* ໃຊ້ຄລາດ 'small' ເພື່ອຫຼຸດ font ຂອງ label/selects ທັງໝົດໃນ Row */}
+              <Row className="mb-2 mb-md-3 small">
                 <Col md={6} xs={6}>
                   <FormGroup>
                     <label className="d-block mb-1">ປະເພດຊັບສິນ</label>
@@ -567,7 +568,7 @@ export default function MyProductSection() {
                 </Col>
               </Row>
 
-              <Row className="mb-0 small"> {/* ໃຊ້ຄລາດ 'small' ເພື່ອຫຼຸດ font ຂອງ label/selects ທັງໝົດໃນ Row */}
+              <Row className="mb-0 small">
                 <Col>
                   <FormGroup>
                     <label className="d-block mb-1">ສະຖານະ</label>
@@ -609,14 +610,14 @@ export default function MyProductSection() {
               const isCurrent = currentPage === page;
               const isNearCurrent = page >= currentPage - 2 && page <= currentPage + 2;
               const isFirstOrLast = page === 1 || page === totalPages;
-              
+
               if (isNearCurrent || isFirstOrLast) {
                 return (
-                  <Button 
-                    key={page} 
-                    variant={isCurrent ? "danger" : "outline-danger"} 
-                    className="mx-1 d-none d-sm-inline-block" 
-                    size="sm" 
+                  <Button
+                    key={page}
+                    variant={isCurrent ? "danger" : "outline-danger"}
+                    className="mx-1 d-none d-sm-inline-block"
+                    size="sm"
                     onClick={() => { setCurrentPage(page); window.location.hash = "#ProductList"; }}
                   >
                     {page}
