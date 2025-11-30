@@ -312,6 +312,7 @@ export default function MyProductSection() {
               <p class="mb-1">💰 ລາຄາ: ${Number(product.price||0).toLocaleString()} ${product.currency?.currencyName||''}</p>
               <p class="mb-1">✅ ສະຖານະ: ${product.status||''}</p>
               <p class="mb-1">📏 ຂະໜາດ: ${product.size||''}</p>
+              <p class="mt-2">ເບີຕິດຕໍ່:  020 51519883</p>
               <p class="mt-2">📝 ລາຍລະອຽດ: ${product.description||''}</p>
             </div>
           </div>
@@ -408,7 +409,7 @@ export default function MyProductSection() {
         if (btnContact) {
           btnContact.onclick = () => {
             const message = `ສະບາຍດີ! ຂ້ອຍສົນໃຈສິນຄ້າ: ${product.productName || product.name}\nລະຫັດ: ${product.productID}\nລາຄາ: ${Number(product.price||0).toLocaleString()}\nທີ່ຕັ້ງ: ${product.village || ''} ${getDistrict(product).districtName || ''}`;
-            const phone = "8562078915900";
+            const phone = "8562051519883";
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             window.open(url, "_blank");
           };

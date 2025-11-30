@@ -40,7 +40,16 @@ export default function MyNavbar() {
 
         {/* ใช้ div ครอบปุ่มแล้วดันไปขวา */}
         <div className="ms-auto d-flex gap-2 order-lg-last" >
-          <Button variant="success" className="fw-bold px-4">ຕິດຕໍ່</Button>
+          <Button
+            variant="success"
+            className="fw-bold px-4"
+            as="a" // ບອກ React Bootstrap ວ່າໃຫ້ໃຊ້ເປັນ <a> tag
+            href="https://wa.me/8562051519883" // ເບີໂທລະສັບ 856 + 20 + 54024453
+            target="_blank" // ເປີດໃນໜ້າຕ່າງໃໝ່ (ແນະນຳສຳລັບລິ້ງພາຍນອກ)
+            rel="noopener noreferrer" // ແນະນຳເພື່ອຄວາມປອດໄພ
+          >
+            ຕິດຕໍ່
+          </Button>
         </div>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler ms-2">
@@ -53,19 +62,6 @@ export default function MyNavbar() {
           <Nav className="ms-auto align-items-center">
             <Nav.Link href="#home" className="active text-danger">ໜ້າຫຼັກ</Nav.Link>
             <Nav.Link className="text-danger" href="#MyProductSection">ຊັບສິນຫຼ້າສຸດ</Nav.Link>
-            {/* <Nav.Link className="text-danger" href="#sectionService">ບໍລິການ</Nav.Link>
-            <Nav.Link className="text-danger" href="#MyAbout">ລາຍລະອຽດ</Nav.Link>
-            <Nav.Link className="text-danger" href="#sectionPolicy">ນະໂຍບາຍ</Nav.Link> */}
-            {/* <Button
-              variant="danger"
-              className="fw-bold px-4"
-              onClick={() => {
-                window.location.href="#MyProductSection"
-                window.dispatchEvent(new CustomEvent('toggleLikedProducts'));
-              }}
-            >
-              ຊັບທີ່ສົນໃຈ
-            </Button> */}
             &nbsp;
           </Nav>
         </Navbar.Collapse>
