@@ -56,7 +56,7 @@ export default function MyNavbar() {
             {/* <Nav.Link className="text-danger" href="#sectionService">ບໍລິການ</Nav.Link>
             <Nav.Link className="text-danger" href="#MyAbout">ລາຍລະອຽດ</Nav.Link>
             <Nav.Link className="text-danger" href="#sectionPolicy">ນະໂຍບາຍ</Nav.Link> */}
-            <Button
+            {/* <Button
               variant="danger"
               className="fw-bold px-4"
               onClick={() => {
@@ -65,7 +65,7 @@ export default function MyNavbar() {
               }}
             >
               ຊັບທີ່ສົນໃຈ
-            </Button>
+            </Button> */}
             &nbsp;
           </Nav>
         </Navbar.Collapse>
